@@ -12,8 +12,8 @@ int main()
     int priority;             // declare a priority value
     int choice;               // declare a choice
     int i;                    // declare a loop variable
-    init_hash_table(&ht);     // initialize the hash table
-    init_priority_queue(&pq); // initialize the priority queue
+//    init_hash_table(&ht);     // initialize the hash table
+//    init_priority_queue(&pq); // initialize the priority queue
     do
     {
         // display the menu
@@ -41,28 +41,28 @@ int main()
             printf("Check-in: ");
             scanf("%d", &it.check_in);
             // insert the item into the hash table
-            insert_hash_table(&ht, it);
+//            insert_hash_table(&ht, it);
             // get the priority value
             printf("Priority: ");
             scanf("%d", &priority);
             // insert the item into the priority queue
-            insert_priority_queue(&pq, it, priority);
+//            insert_priority_queue(&pq, it, priority);
             break;
         case 2:
             // get the key
-            printf("Enter the key: ");
+            printf("Enter the Id: ");
             scanf("%d", &key);
             // delete the item from the hash table
-            delete_hash_table(&ht, key);
+//            delete_hash_table(&ht, key);
             // delete the item from the priority queue
-            delete_priority_queue(&pq, key);
+//            delete_priority_queue(&pq, key);
             break;
         case 3:
             // get the key
-            printf("Enter the key: ");
+            printf("Enter the Id: ");
             scanf("%d", &key);
             // search for the item in the hash table
-            it = search_hash_table(&ht, key);
+//            it = search_hash_table(&ht, key);
             // display the item
             printf("ID: %d\n", it.id);
             printf("Name: %s\n", it.name);
@@ -71,31 +71,31 @@ int main()
             break;
         case 4:
             // get the key
-            printf("Enter the key: ");
+            printf("Enter the Id: ");
             scanf("%d", &key);
             // get the item details
             printf("Enter the item details:\n");
             printf("ID: ");
             scanf("%d", &it.id);
             printf("Name: ");
-            scanf("%s", it.name);
+            scanf(" %[^\n]s", it.name);
             printf("Phone: ");
             scanf("%s", it.phone);
             printf("Check-in: ");
             scanf("%d", &it.check_in);
             // update the item in the hash table
-            update_hash_table(&ht, key, it);
+//            update_hash_table(&ht, key, it);
             // get the priority value
             printf("Priority: ");
             scanf("%d", &priority);
             // update the item in the priority queue
-            update_priority_queue(&pq, key, priority);
+//            update_priority_queue(&pq, key, priority);
             break;
         case 5:
             // display the hash table
-            display_hash_table(&ht);
+//            display_hash_table(&ht);
             // display the priority queue
-            display_priority_queue(&pq);
+//            display_priority_queue(&pq);
             break;
         case 6:
             // exit the program
