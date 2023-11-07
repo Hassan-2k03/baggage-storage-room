@@ -47,10 +47,10 @@ typedef struct priority_queue
 } PRIORITY_QUEUE;
 
 // hash table functions
-void init_hash_table(HASH_TABLE *ht);                            // initialize the hash table
-int hash_function(int key);                                      // compute the hash value of a key
-void insert_hash_table(HASH_TABLE *ht, struct item it);          // insert an item into the hash table
-struct item search_hash_table(HASH_TABLE *ht, int key);          // search for an item in the hash table by key
+void initHashTable(HASH_TABLE *ht);                              // initialize the hash table
+int hashFunction(int key);                                       // compute the hash value of a key
+void insertHashTable(HASH_TABLE *ht, ITEM it);                   // insert an item into the hash table
+ITEM searchHashTable(HASH_TABLE *ht, int key);                   // search for an item in the hash table by key (id)
 void update_hash_table(HASH_TABLE *ht, int key, struct item it); // update an item in the hash table by key
 void delete_hash_table(HASH_TABLE *ht, int key);                 // delete an item from the hash table by key
 void display_hash_table(HASH_TABLE *ht);                         // display all the items in the hash table
