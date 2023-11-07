@@ -51,7 +51,7 @@ void initHashTable(HASH_TABLE *ht);                            // initialize the
 int hashFunction(int key);                                     // compute the hash value of a key
 void insertHashTable(HASH_TABLE *ht, ITEM it);                 // insert an item into the hash table
 ITEM searchHashTable(HASH_TABLE *ht, int key);                 // search for an item in the hash table by key (id)
-void updateHashTable(HASH_TABLE *ht, int key, struct item it); // update an item in the hash table by key
+void updateHashTable(HASH_TABLE *ht, int key, ITEM it); // update an item in the hash table by key
 void deleteHashTable(HASH_TABLE *ht, int key);                 // delete an item from the hash table by key
 void displayHashTable(HASH_TABLE *ht);                         // display all the items in the hash table
 
