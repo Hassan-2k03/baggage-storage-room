@@ -65,49 +65,41 @@ struct item searchHashTable(HASH_TABLE *ht, int key) // search for an item in th
 
 void updateHashTable(HASH_TABLE *ht, int key, ITEM it) // update an item in the hash table by key
 {
-    int index; // declare an index variable
-    NODE *p;   // declare a pointer to a node
-    // compute the hash value of the key
-    index = hashFunction(key);
+    int index = hashFunction(key); // compute the hash value of the key and store in index
+    NODE *p = ht->table[index];    // declare a pointer to table[index]
+
     // traverse the linked list to find the node with the given key
-    p = ht->table[index];
     while (p != NULL)
     {
         if (p->data.id == key)
         {
             // update the item data
             p->data = it;
-            break;
+            return;
         }
         p = p->next;
     }
+    printf("Item not found\n"); // display an error message if the key is not found
 }
 
 void deleteHashTable(HASH_TABLE *ht, int key) // delete an item from the hash table by key
 {
-    int index; // declare an index variable
-    NODE *p;   // declare a pointer to a node
-    NODE *q;   // declare a pointer to a node
-    // compute the hash value of the key
-    index = hashFunction(key);
+    int index = hashFunction(key); // compute the hash value of the key and store in index
+    NODE *p = ht->table[index];    // declare a pointer to a node and initialize it to table[index]
+    NODE *q = NULL;                // declare a pointer to a node and initialize it to NULL
+
     // traverse the linked list to find the node with the given key
-    p = ht->table[index];
-    q = NULL;
     while (p != NULL)
     {
         if (p->data.id == key)
         {
             // check if the node is the first node
             if (q == NULL)
-            {
                 // delete first node
                 ht->table[index] = p->next;
-            }
             else
-            {
                 // delete the node
                 q->next = p->next;
-            }
             // free the memory allocated for the node
             free(p);
             break;
