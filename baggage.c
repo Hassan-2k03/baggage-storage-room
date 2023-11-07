@@ -65,7 +65,7 @@ struct item searchHashTable(HASH_TABLE *ht, int key) // search for an item in th
     return it;
 }
 
-void update_hash_table(HASH_TABLE *ht, int key, struct item it) // update an item in the hash table by key
+void updateHashTable(HASH_TABLE *ht, int key, ITEM it) // update an item in the hash table by key
 {
     int index; // declare an index variable
     NODE *p;   // declare a pointer to a node
@@ -85,7 +85,7 @@ void update_hash_table(HASH_TABLE *ht, int key, struct item it) // update an ite
     }
 }
 
-void delete_hash_table(HASH_TABLE *ht, int key) // delete an item from the hash table by key
+void deleteHashTable(HASH_TABLE *ht, int key) // delete an item from the hash table by key
 {
     int index; // declare an index variable
     NODE *p;   // declare a pointer to a node
@@ -121,7 +121,7 @@ void delete_hash_table(HASH_TABLE *ht, int key) // delete an item from the hash 
     ht->count--;
 }
 
-void display_hash_table(HASH_TABLE *ht) // display all the items in the hash table
+void displayHashTable(HASH_TABLE *ht) // display all the items in the hash table
 {
     int i;   // declare a loop variable
     NODE *p; // declare a pointer to a node
@@ -142,14 +142,14 @@ void display_hash_table(HASH_TABLE *ht) // display all the items in the hash tab
 
 // priority queue functions
 
-void init_priority_queue(PRIORITY_QUEUE *pq) // initialize the priority queue
+void initPriorityQueue(PRIORITY_QUEUE *pq) // initialize the priority queue
 {
     // initialize the priority queue
     pq->root = NULL;
     pq->count = 0;
 }
 
-void insert_priority_queue(PRIORITY_QUEUE *pq, struct item it, int priority) // insert an item into the priority queue with a priority value
+void insertPriorityQueue(PRIORITY_QUEUE *pq, ITEM it, int priority) // insert an item into the priority queue with a priority value
 {
     PQ_NODE *p; // declare a pointer to a node
     PQ_NODE *q; // declare a pointer to a node
@@ -184,7 +184,7 @@ void insert_priority_queue(PRIORITY_QUEUE *pq, struct item it, int priority) // 
     pq->count++;
 }
 
-struct item pop_priority_queue(PRIORITY_QUEUE *pq) // pop the item with the highest priority from the priority queue
+struct item popPriorityQueue(PRIORITY_QUEUE *pq) // pop the item with the highest priority from the priority queue
 {
     PQ_NODE *p; // declare a pointer to a node
     PQ_NODE *q; // declare a pointer to a node
@@ -241,7 +241,7 @@ struct item pop_priority_queue(PRIORITY_QUEUE *pq) // pop the item with the high
     }
 }
 
-void update_priority_queue(PRIORITY_QUEUE *pq, int key, int priority) // update the priority value of an item in the priority queue by key
+void updatePriorityQueue(PRIORITY_QUEUE *pq, int key, int priority) // update the priority value of an item in the priority queue by key
 {
     PQ_NODE *p; // declare a pointer to a node
     // traverse the priority queue to find the node with the given key
@@ -258,7 +258,7 @@ void update_priority_queue(PRIORITY_QUEUE *pq, int key, int priority) // update 
     }
 }
 
-void delete_priority_queue(PRIORITY_QUEUE *pq, int key) // delete an item from the priority queue by key
+void deletePriorityQueue(PRIORITY_QUEUE *pq, int key) // delete an item from the priority queue by key
 {
     PQ_NODE *p; // declare a pointer to a node
     PQ_NODE *q; // declare a pointer to a node
@@ -301,7 +301,7 @@ void delete_priority_queue(PRIORITY_QUEUE *pq, int key) // delete an item from t
     pq->count--;
 }
 
-void display_priority_queue(PRIORITY_QUEUE *pq) // display all the items in the priority queue
+void displayPriorityQueue(PRIORITY_QUEUE *pq) // display all the items in the priority queue
 {
     PQ_NODE *p; // declare a pointer to a node
     // display the priority queue
