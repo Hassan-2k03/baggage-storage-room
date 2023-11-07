@@ -16,8 +16,6 @@ int hashFunction(int key) // compute the hash value of a key
     return key % SIZE;
 }
 
-// use recursion where ever possible
-
 void insertHashTable(HASH_TABLE *ht, ITEM it) // insert an item into the hash table
 {
     // declare an index variable
