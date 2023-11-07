@@ -46,21 +46,17 @@ void insertHashTable(HASH_TABLE *ht, ITEM it) // insert an item into the hash ta
     ht->count++;
 }
 
-struct item search_hash_table(HASH_TABLE *ht, int key) // search for an item in the hash table by key
+struct item searchHashTable(HASH_TABLE *ht, int key) // search for an item in the hash table by key
 {
-    int index; // declare an index variable
-    NODE *p;   // declare a pointer to a node
-    // compute the hash value of the key
-    index = hashFunction(key);
+    int index = hashFunction(key); // compute the hash value of the key and store in index
+    NODE *p = ht->table[index];    // declare a pointer to table[index]
+
     // traverse the linked list to find the node with the given key
-    p = ht->table[index];
     while (p != NULL)
     {
         if (p->data.id == key)
-        {
             // return the item data
             return p->data;
-        }
         p = p->next;
     }
     // return an empty item if the key is not found
