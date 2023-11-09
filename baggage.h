@@ -7,13 +7,19 @@
 
 #define SIZE 10 // size of the hash table
 
+struct check_in
+{
+    int hh, mm;
+};
+
 // structure to store the item information
 typedef struct item
 {
     int id;         // item key
     char name[50];  // item owner name
     char phone[10]; // item owner phone number
-    int check_in;   // item check-in time
+    struct check_in t;
+     // item check-in time
 } ITEM;
 
 // structure to store the node of the linked list
@@ -47,20 +53,20 @@ typedef struct priority_queue
 } PRIORITY_QUEUE;
 
 // hash table functions
-void initHashTable(HASH_TABLE *ht);                            // initialize the hash table
-int hashFunction(int key);                                     // compute the hash value of a key
-void insertHashTable(HASH_TABLE *ht, ITEM it);                 // insert an item into the hash table
-ITEM searchHashTable(HASH_TABLE *ht, int key);                 // search for an item in the hash table by key (id)
+void initHashTable(HASH_TABLE *ht);                     // initialize the hash table
+int hashFunction(int key);                              // compute the hash value of a key
+void insertHashTable(HASH_TABLE *ht, ITEM it);          // insert an item into the hash table
+ITEM searchHashTable(HASH_TABLE *ht, int key);          // search for an item in the hash table by key (id)
 void updateHashTable(HASH_TABLE *ht, int key, ITEM it); // update an item in the hash table by key
-void deleteHashTable(HASH_TABLE *ht, int key);                 // delete an item from the hash table by key
-void displayHashTable(HASH_TABLE *ht);                         // display all the items in the hash table
+void deleteHashTable(HASH_TABLE *ht, int key);          // delete an item from the hash table by key
+void displayHashTable(HASH_TABLE *ht);                  // display all the items in the hash table
 
-// priority queue functions
+/* // priority queue functions
 void initPriorityQueue(PRIORITY_QUEUE *pq);                          // initialize the priority queue
 void insertPriorityQueue(PRIORITY_QUEUE *pq, ITEM it, int priority); // insert an item into the priority queue with a priority value
 ITEM popPriorityQueue(PRIORITY_QUEUE *pq);                           // pop the item with the highest priority from the priority queue
 void updatePriorityQueue(PRIORITY_QUEUE *pq, int key, int priority); // update the priority value of an item in the priority queue by key
 void deletePriorityQueue(PRIORITY_QUEUE *pq, int key);               // delete an item from the priority queue by key
 void displayPriorityQueue(PRIORITY_QUEUE *pq);                       // display all the items in the priority queue
-
-#endif
+*/
+#endif 

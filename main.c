@@ -13,7 +13,7 @@ int main()
     int choice;             // declare a choice
     int i;                  // declare a loop variable
     initHashTable(&ht);     // initialize the hash table
-    initPriorityQueue(&pq); // initialize the priority queue
+//    initPriorityQueue(&pq); // initialize the priority queue
     do
     {
         // display the menu
@@ -39,14 +39,14 @@ int main()
             printf("Phone: ");
             scanf("%s", it.phone);
             printf("Check-in: ");
-            scanf("%d", &it.check_in);
+            scanf("%d:%d", &it.t.hh, &it.t.mm);
             // insert the item into the hash table
             insertHashTable(&ht, it);
             // get the priority value
-            printf("Priority: ");
-            scanf("%d", &priority);
+//            printf("Priority: ");
+//            scanf("%d", &priority);
             // insert the item into the priority queue
-            insertPriorityQueue(&pq, it, priority);
+//            insertPriorityQueue(&pq, it, priority);
             break;
         case 2:
             // get the key
@@ -55,7 +55,7 @@ int main()
             // delete the item from the hash table
             deleteHashTable(&ht, key);
             // delete the item from the priority queue
-            deletePriorityQueue(&pq, key);
+//            deletePriorityQueue(&pq, key);
             break;
         case 3:
             // get the key
@@ -67,7 +67,7 @@ int main()
             printf("ID: %d\n", it.id);
             printf("Name: %s\n", it.name);
             printf("Phone: %s\n", it.phone);
-            printf("Check-in: %d\n", it.check_in);
+            printf("Check-in: %d:%d\n", it.t.hh, it.t.mm);
             break;
         case 4:
             // get the key
@@ -82,20 +82,20 @@ int main()
             printf("Phone: ");
             scanf("%s", it.phone);
             printf("Check-in: ");
-            scanf("%d", &it.check_in);
+            scanf("%d:%d", &it.t.hh, &it.t.mm);
             // update the item in the hash table
             updateHashTable(&ht, key, it);
             // get the priority value
-            printf("Priority: ");
-            scanf("%d", &priority);
+//            printf("Priority: ");
+//            scanf("%d", &priority);
             // update the item in the priority queue
-            updatePriorityQueue(&pq, key, priority);
+//            updatePriorityQueue(&pq, key, priority);
             break;
         case 5:
             // display the hash table
             displayHashTable(&ht);
             // display the priority queue
-            displayPriorityQueue(&pq);
+//            displayPriorityQueue(&pq);
             break;
         case 6:
             // exit the program
