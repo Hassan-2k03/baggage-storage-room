@@ -130,5 +130,5 @@ void displayHashTable(HASH_TABLE *ht) // display all the items in the hash table
     }
 }
 
-/* // priority queue functions
+// priority queue functions
 
