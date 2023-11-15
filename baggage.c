@@ -223,7 +223,6 @@ struct item popPriorityQueue(PRIORITY_QUEUE *pq) // pop the item with the highes
     }
 }
 
-
 void updatePriorityQueue(PRIORITY_QUEUE *pq, int key, ITEM it) // update the priority value of an item in the priority queue by key
 {
     PQ_NODE *p; // declare a pointer to a node
@@ -260,23 +259,20 @@ void deletePriorityQueue(PRIORITY_QUEUE *pq, int key) // delete an item from the
                 q = pq->root;
                 pq->root = pq->root->left;
                 if (pq->root != NULL)
-                {
                     pq->root->right = NULL;
-                }
             }
-            else
-            {
-                // set the left child of the node to the right child of the node
-                q->left->right = q->right;
-                if (q->right != NULL)
-                {
-                    q->right->left = q->left;
-                }
-            }
-            // free the memory allocated for the node
-            free(q);
-            break;
         }
+        else
+        {
+            // set the right child of the parent node to the right child of the node
+            q->right = p->right;
+            if (p->right != NULL)
+                p->right->left = q;
+        }
+        // free the memory allocated for the node
+        free(p);
+        break;
+        // update the pointers
         q = p;
         p = p->right;
     }
@@ -287,9 +283,8 @@ void deletePriorityQueue(PRIORITY_QUEUE *pq, int key) // delete an item from the
 void displayPriorityQueue(PRIORITY_QUEUE *pq) // display all the items in the priority queue
 {
     printf("Priority Queue\n");
-    PQ_NODE *p; // declare a pointer to a node
+    PQ_NODE *p = pq->root; // declare a pointer to a node and initialize it to the root node
     // display the priority queue
-    p = pq->root;
     while (p != NULL)
     {
         printf("%d:%s %d:%d %s", p->data.id, p->data.name, p->data.t.hh, p->data.t.mm, p->data.phone);
