@@ -5,105 +5,119 @@
 
 int main()
 {
-    HASH_TABLE ht;            // declare a hash table
-    PRIORITY_QUEUE pq;        // declare a priority queue
-    ITEM it;                  // declare an item
-    int key;                  // declare a key
-    int priority;             // declare a priority value
-    int choice;               // declare a choice
-    int i;                    // declare a loop variable
-//    init_hash_table(&ht);     // initialize the hash table
-//    init_priority_queue(&pq); // initialize the priority queue
+    // declare a hash table and a priority queue
+    HASH_TABLE ht;
+    PRIORITY_QUEUE pq;
+    // declare an item and a time variable
+    ITEM it;
+    struct check_in t;
+    // declare a key variable
+    int key;
+    // declare a choice variable
+    int choice;
+    // initialize the hash table and the priority queue
+    initHashTable(&ht);
+    initPriorityQueue(&pq);
+
+    // menu driven program to test the hash table and priority queue functions
     do
     {
-        // display the menu
         printf("1. Insert\n");
-        printf("2. Delete\n");
-        printf("3. Search\n");
-        printf("4. Update\n");
+        printf("2. Search\n");
+        printf("3. Update\n");
+        printf("4. Delete\n");
         printf("5. Display\n");
         printf("6. Exit\n");
-        // get the choice
         printf("Enter your choice: ");
         scanf("%d", &choice);
-        // process the choice
         switch (choice)
         {
         case 1:
-            // get the item details
-            printf("Enter the item details:\n");
+            // read the item details
+            printf("Enter the item details\n");
             printf("ID: ");
             scanf("%d", &it.id);
             printf("Name: ");
             scanf(" %[^\n]s", it.name);
             printf("Phone: ");
             scanf("%s", it.phone);
-            printf("Check-in: ");
-            scanf("%d", &it.check_in);
+            printf("Check-in time (hh:mm): ");
+            scanf("%d:%d", &t.hh, &t.mm);
+            it.t = t;
             // insert the item into the hash table
-//            insert_hash_table(&ht, it);
-            // get the priority value
-            printf("Priority: ");
-            scanf("%d", &priority);
+            insertHashTable(&ht, it);
             // insert the item into the priority queue
-//            insert_priority_queue(&pq, it, priority);
+            insertPriorityQueue(&pq, it);
             break;
         case 2:
-            // get the key
-            printf("Enter the Id: ");
-            scanf("%d", &key);
-            // delete the item from the hash table
-//            delete_hash_table(&ht, key);
-            // delete the item from the priority queue
-//            delete_priority_queue(&pq, key);
-            break;
-        case 3:
-            // get the key
-            printf("Enter the Id: ");
+            // read the key
+            printf("Enter the key: ");
             scanf("%d", &key);
             // search for the item in the hash table
-//            it = search_hash_table(&ht, key);
-            // display the item
-            printf("ID: %d\n", it.id);
-            printf("Name: %s\n", it.name);
-            printf("Phone: %s\n", it.phone);
-            printf("Check-in: %d\n", it.check_in);
+            it = searchHashTable(&ht, key);
+            // check if the item is found
+            if (it.id != -1)
+            {
+                // display the item details
+                printf("%d:%s %s %d:%d\n", it.id, it.name, it.phone, it.t.hh, it.t.mm);
+            }
+            else
+            {
+                printf("Item not found\n");
+            }
+            break;
+        case 3:
+            // read the key
+            printf("Enter the key: ");
+            scanf("%d", &key);
+            // search for the item in the hash table
+            it = searchHashTable(&ht, key);
+            // check if the item is found
+            if (it.id != -1)
+            {
+                // read the item details
+                printf("Enter the item details\n");
+                printf("ID: ");
+                scanf("%d", &it.id);
+                printf("Name: ");
+                scanf(" %[^\n]s", it.name);
+                printf("Phone: ");
+                scanf("%s", it.phone);
+                printf("Check-in time (hh:mm): ");
+                scanf("%d:%d", &t.hh, &t.mm);
+                it.t = t;
+                // update the item in the hash table
+                updateHashTable(&ht, key, it);
+                // update the item in the priority queue
+                updatePriorityQueue(&pq, key, it);
+            }
+            else
+            {
+                printf("Item not found\n");
+            }
             break;
         case 4:
-            // get the key
-            printf("Enter the Id: ");
+            // read the key
+            printf("Enter the ID: ");
             scanf("%d", &key);
-            // get the item details
-            printf("Enter the item details:\n");
-            printf("ID: ");
-            scanf("%d", &it.id);
-            printf("Name: ");
-            scanf(" %[^\n]s", it.name);
-            printf("Phone: ");
-            scanf("%s", it.phone);
-            printf("Check-in: ");
-            scanf("%d", &it.check_in);
-            // update the item in the hash table
-//            update_hash_table(&ht, key, it);
-            // get the priority value
-            printf("Priority: ");
-            scanf("%d", &priority);
-            // update the item in the priority queue
-//            update_priority_queue(&pq, key, priority);
+            // delete the item from the hash table
+            deleteHashTable(&ht, key);
+            // delete the item from the priority queue
+            deletePriorityQueue(&pq, key);
             break;
         case 5:
             // display the hash table
-//            display_hash_table(&ht);
+            printf("Hash Table\n");
+            displayHashTable(&ht);
             // display the priority queue
-//            display_priority_queue(&pq);
+            displayPriorityQueue(&pq);
             break;
         case 6:
             // exit the program
             exit(0);
         default:
-            // invalid choice
             printf("Invalid choice\n");
         }
-    } while (1);
+    } while (choice != 6);
     return 0;
 }
