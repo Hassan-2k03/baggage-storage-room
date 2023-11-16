@@ -15,8 +15,8 @@ struct check_in
 // structure to store the item information
 typedef struct item
 {
-    int id;         // item key
-    char name[50];  // item owner name
+    int id;        // item key
+    char name[50]; // item owner name
     char phone[9]; // item owner phone number
     struct check_in t;
     // item check-in time
@@ -69,4 +69,8 @@ void updatePriorityQueue(PRIORITY_QUEUE *pq, int key, ITEM it); // update the pr
 void deletePriorityQueue(PRIORITY_QUEUE *pq, int key);          // delete an item from the priority queue by key
 void displayPriorityQueue(PRIORITY_QUEUE *pq);                  // display all the items in the priority queue
 
+// validation of items
+int validName(char *name);   // validate the name of an item
+int validPhone(char *phone); // validate the phone number of an item
+int validId(int *id);        // validate if id has only numbers
 #endif

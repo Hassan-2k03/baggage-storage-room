@@ -3,6 +3,38 @@
 #include <string.h>
 #include "baggage.h"
 
+// Checks if Name is valid or not
+int validName(char *name)
+{
+    int i;
+    for (i = 0; i < strlen(name); i++)
+    {
+        if (!((name[i] >= 'a' && name[i] <= 'z') || (name[i] >= 'A' && name[i] <= 'Z') || name[i] == ' '))
+            return 0;
+    }
+    return 1;
+}
+
+// Checks if Phone is valid or not 10 digits
+int validPhone(char *phone)
+{
+    int i;
+    if (strlen(phone) != 10)
+        return 0;
+    for (i = 0; i < strlen(phone); i++)
+    {
+        if (!(phone[i] >= '0' && phone[i] <= '9'))
+            return 0;
+    }
+    return 1;
+}
+
+// checks if id contains only number or not
+int validId(int id)
+{
+    
+}
+
 // hash table functions
 void initHashTable(HASH_TABLE *ht) // initialize the hash table
 {

@@ -35,10 +35,11 @@ int main()
         case 1:
             // read the item details
             printf("Enter the item details\n");
-            printf("ID: ");
+            printf("ID: ");// if letters entered it should be rejected and message to be displayed
             scanf("%d", &it.id);
             printf("Name: ");
             scanf(" %[^\n]s", it.name);
+            validation(&it);
             printf("Phone: ");
             scanf("%s", it.phone);
             printf("Check-in time (hh:mm): ");
