@@ -39,7 +39,7 @@ int main()
             scanf("%d", &it.id);
             printf("Name: ");
             scanf(" %[^\n]s", it.name);
-            validation(&it);
+            validName(it.name);
             printf("Phone: ");
             scanf("%s", it.phone);
             printf("Check-in time (hh:mm): ");
