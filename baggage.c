@@ -63,8 +63,6 @@ void insertHashTable(HASH_TABLE *ht, ITEM it) // insert an item into the hash ta
     NODE *q; // declare a pointer to a node
     int id = atoi(it.id);                  // convert the key to an integer
     int index = hashFunction(id);         // compute the hash value of the key and stores in index
-    printf("index: %d\n", index);          // display the index value
-    printf("id: %d\n", id);                // display the key value
     NODE *p = (NODE *)malloc(sizeof(NODE)); // allocate memory for a new node and store in pointer p
     p->data = it;                           // copy the item data into the node
     p->next = NULL;                         // set the next pointer to NULL
@@ -86,6 +84,9 @@ void insertHashTable(HASH_TABLE *ht, ITEM it) // insert an item into the hash ta
     }
     // increment the number of items in the hash table
     ht->count++;
+    // get current time and store in current_time
+    getCurrentTime(&p->current_time);
+    
 }
 
 struct item searchHashTable(HASH_TABLE *ht, int key) // search for an item in the hash table by key
@@ -167,7 +168,8 @@ void displayHashTable(HASH_TABLE *ht) // display all the items in the hash table
         p = ht->table[i];
         while (p != NULL)
         {
-            printf("%d:%s %s\n", atoi(p->data.id), p->data.name, p->data.phone);
+            printf("%d:%s %s, ", atoi(p->data.id), p->data.name, p->data.phone);
+            printf("Checkin Time: %d:%d:%d\n", p->current_time.hh, p->current_time.mm, p->current_time.ss);
             p = p->next;
         }
         printf("\n");
