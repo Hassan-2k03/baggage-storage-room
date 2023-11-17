@@ -3,6 +3,46 @@
 #include <string.h>
 #include "baggage.h"
 
+// Checks if Name is valid or not
+int validName(char *name)
+{
+    int i;
+    for (i = 0; i < strlen(name); i++)
+    {
+        if (!((name[i] >= 'a' && name[i] <= 'z') || (name[i] >= 'A' && name[i] <= 'Z') || name[i] == ' '))
+            return 0;
+    }
+    return 1;
+}
+
+// Checks if Phone is valid or not 10 digits
+int validPhone(char *phone)
+{
+    int i;
+    if (strlen(phone) != 10)
+        return 0;
+    for (i = 0; i < strlen(phone); i++)
+    {
+        if (!(phone[i] >= '0' && phone[i] <= '9'))
+            return 0;
+    }
+    return 1;
+}
+
+// checks if id contains only 6 digits no letters
+int validId(char *id)
+{
+    int i;
+    if (strlen(id) != 6)
+        return 0;
+    for (i = 0; i < strlen(id); i++)
+    {
+        if (!(id[i] >= '0' && id[i] <= '9'))
+            return 0;
+    }
+    return 1;
+}
+
 // hash table functions
 void initHashTable(HASH_TABLE *ht) // initialize the hash table
 {
@@ -19,8 +59,13 @@ int hashFunction(int key) // compute the hash value of a key
 void insertHashTable(HASH_TABLE *ht, ITEM it) // insert an item into the hash table
 {
     // declare an index variable
-    NODE *q;                                // declare a pointer to a node
-    int index = hashFunction(it.id);        // compute the hash value of the key and stores in index
+    NODE *q; // declare a pointer to a node
+    printf("it.id before conversion: %s\n", it.id);
+    int id = atoi(it.id);
+    printf("id after conversion: %d\n", id);
+    int index = hashFunction(id);         // compute the hash value of the key and stores in index
+    printf("index: %d\n", index);          // display the index value
+    printf("id: %d\n", id);                // display the key value
     NODE *p = (NODE *)malloc(sizeof(NODE)); // allocate memory for a new node and store in pointer p
     p->data = it;                           // copy the item data into the node
     p->next = NULL;                         // set the next pointer to NULL
@@ -52,14 +97,14 @@ struct item searchHashTable(HASH_TABLE *ht, int key) // search for an item in th
     // traverse the linked list to find the node with the given key
     while (p != NULL)
     {
-        if (p->data.id == key)
+        if (atoi(p->data.id) == key)
             // return the item data
             return p->data;
         p = p->next;
     }
     // return an empty item if the key is not found
     struct item it;
-    it.id = -1;
+    it.id[0] = '\0'; // modify the first character of the id
     return it;
 }
 
@@ -71,7 +116,7 @@ void updateHashTable(HASH_TABLE *ht, int key, ITEM it) // update an item in the 
     // traverse the linked list to find the node with the given key
     while (p != NULL)
     {
-        if (p->data.id == key)
+        if (atoi(p->data.id) == key)
         {
             // update the item data
             p->data = it;
@@ -91,7 +136,7 @@ void deleteHashTable(HASH_TABLE *ht, int key) // delete an item from the hash ta
     // traverse the linked list to find the node with the given key
     while (p != NULL)
     {
-        if (p->data.id == key)
+        if (atoi(p->data.id) == key)
         {
             // check if the node is the first node
             if (q == NULL)
@@ -123,7 +168,7 @@ void displayHashTable(HASH_TABLE *ht) // display all the items in the hash table
         p = ht->table[i];
         while (p != NULL)
         {
-            printf("%d:%s %d:%d %s", p->data.id, p->data.name, p->data.t.hh, p->data.t.mm, p->data.phone);
+            printf("%d:%s %d:%d %s", atoi(p->data.id), p->data.name, p->data.t.hh, p->data.t.mm, p->data.phone);
             p = p->next;
         }
         printf("\n");
@@ -132,7 +177,7 @@ void displayHashTable(HASH_TABLE *ht) // display all the items in the hash table
 
 // priority queue functions
 
-void initPriorityQueue(PRIORITY_QUEUE *pq) // initialize the priority queue
+/* void initPriorityQueue(PRIORITY_QUEUE *pq) // initialize the priority queue
 {
     // initialize the priority queue
     pq->root = NULL;
@@ -291,4 +336,4 @@ void displayPriorityQueue(PRIORITY_QUEUE *pq) // display all the items in the pr
         p = p->right;
     }
     printf("\n");
-}
+} */
