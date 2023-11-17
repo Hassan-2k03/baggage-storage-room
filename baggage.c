@@ -187,13 +187,13 @@ void getCurrentTime(struct check_in *current_time) {
 
 // priority queue functions
 
-/* void initPriorityQueue(PRIORITY_QUEUE *pq) // initialize the priority queue
+ void initPriorityQueue(PRIORITY_QUEUE *pq) // initialize the priority queue
 {
     // initialize the priority queue
     pq->root = NULL;
     pq->count = 0;
 }
-
+/*
 void insertPriorityQueue(PRIORITY_QUEUE *pq, ITEM it) // insert an item into the priority queue
 {
     PQ_NODE *p; // declare a pointer to a node

@@ -72,7 +72,8 @@ int main()
             if (it.id[0] != '\0')
             {
                 // display the item details
-                printf("%d:%s %s \n", it.id, it.name, it.phone);
+                printf("Item details\n");
+                printf("%d:%s %s\n ", atoi(it.id), it.name, it.phone);
             }
             else
             {
