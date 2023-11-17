@@ -60,7 +60,12 @@ int main()
             // insert the item into the hash table
             insertHashTable(&ht, it);
             // insert the item into the priority queue
-            //insertPriorityQueue(&pq, it);
+            if(it.id[0]==7&&it.id[1]==7)
+            {
+                printf("")
+                insertPriorityQueue(&pq, it);
+            }
+            
             break;
         case 2:
             // read the key

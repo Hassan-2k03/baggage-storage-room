@@ -184,7 +184,7 @@ void getCurrentTime(struct check_in *current_time) {
     current_time->mm = localTime->tm_min;
     current_time->ss = localTime->tm_sec;
 }
-
+/*
 // priority queue functions
 
  void initPriorityQueue(PRIORITY_QUEUE *pq) // initialize the priority queue
@@ -193,7 +193,7 @@ void getCurrentTime(struct check_in *current_time) {
     pq->root = NULL;
     pq->count = 0;
 }
-/*
+
 void insertPriorityQueue(PRIORITY_QUEUE *pq, ITEM it) // insert an item into the priority queue
 {
     PQ_NODE *p; // declare a pointer to a node
@@ -203,7 +203,7 @@ void insertPriorityQueue(PRIORITY_QUEUE *pq, ITEM it) // insert an item into the
     // copy the item data into the node
     p->data = it;
     // set the priority value which is the check-in time in minutes
-    p->priority = it.t.hh * 60 + it.t.mm;
+    p->priority = 
     // set the left and right child pointers to NULL
     p->left = NULL;
     p->right = NULL;
@@ -228,7 +228,7 @@ void insertPriorityQueue(PRIORITY_QUEUE *pq, ITEM it) // insert an item into the
     // increment the number of items in the priority queue
     pq->count++;
 }
-
+/*
 struct item popPriorityQueue(PRIORITY_QUEUE *pq) // pop the item with the highest priority from the priority queue
 {
     PQ_NODE *p; // declare a pointer to a node
