@@ -35,13 +35,22 @@ int main()
         case 1:
             // read the item details
             printf("Enter the item details\n");
-            printf("ID: ");// if letters entered it should be rejected and message to be displayed
+            printf("ID: "); // if letters entered it should be rejected and message to be displayed
             scanf("%d", &it.id);
             printf("Name: ");
             scanf(" %[^\n]s", it.name);
-            validName(it.name);
+            if (validName(it.name) == 0)
+            {
+                printf("Error: Invalid Name\n");
+                break;
+            }
             printf("Phone: ");
             scanf("%s", it.phone);
+            if (validName(it.phone) == 0)
+            {
+                printf("Error: Invalid Phone Number\n");
+                break;
+            }
             printf("Check-in time (hh:mm): ");
             scanf("%d:%d", &t.hh, &t.mm);
             it.t = t;
@@ -51,7 +60,7 @@ int main()
             insertPriorityQueue(&pq, it);
             break;
         case 2:
-            // read the key
+            // read the keyz42
             printf("Enter the key: ");
             scanf("%d", &key);
             // search for the item in the hash table
@@ -82,8 +91,18 @@ int main()
                 scanf("%d", &it.id);
                 printf("Name: ");
                 scanf(" %[^\n]s", it.name);
+                if (validName(it.name) == 0)
+                {
+                    printf("Error: Invalid Name\n");
+                    break;
+                }
                 printf("Phone: ");
                 scanf("%s", it.phone);
+                if (validPhone(it.phone) == 0)
+                {
+                    printf("Error: Invalid Phone Number\n");
+                    break;
+                }
                 printf("Check-in time (hh:mm): ");
                 scanf("%d:%d", &t.hh, &t.mm);
                 it.t = t;

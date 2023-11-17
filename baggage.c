@@ -30,7 +30,7 @@ int validPhone(char *phone)
 }
 
 // checks if id contains only number or not
-int validId(int id)
+int validId(int *id)
 {
 }
 
