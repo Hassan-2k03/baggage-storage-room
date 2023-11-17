@@ -32,8 +32,6 @@ int validPhone(char *phone)
 // checks if id contains only number or not
 int validId(int id)
 {
-    if(isalpha(id))
-    
 }
 
 // hash table functions
