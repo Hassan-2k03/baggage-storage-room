@@ -17,7 +17,7 @@ int main()
     int choice;
     // initialize the hash table and the priority queue
     initHashTable(&ht);
-    initPriorityQueue(&pq);
+    //initPriorityQueue(&pq);
 
     // menu driven program to test the hash table and priority queue functions
     do
@@ -35,8 +35,6 @@ int main()
         case 1:
             // read the item details
             printf("Enter the item details\n");
-            printf("ID: "); // if letters entered it should be rejected and message to be displayed
-            scanf("%d", &it.id);
             printf("Name: ");
             scanf(" %[^\n]s", it.name);
             if (validName(it.name) == 0)
@@ -44,9 +42,17 @@ int main()
                 printf("Error: Invalid Name\n");
                 break;
             }
+            printf("ID: "); // if letters entered it should be rejected and message to be displayed
+            scanf("%s", &it.id);
+            getchar();
+            if (validId(it.id) == 0)
+            {
+                printf("Error: Invalid ID\n");
+                break;
+            }
             printf("Phone: ");
             scanf("%s", it.phone);
-            if (validName(it.phone) == 0)
+            if (validPhone(it.phone) == 0)
             {
                 printf("Error: Invalid Phone Number\n");
                 break;
@@ -57,16 +63,16 @@ int main()
             // insert the item into the hash table
             insertHashTable(&ht, it);
             // insert the item into the priority queue
-            insertPriorityQueue(&pq, it);
+            //insertPriorityQueue(&pq, it);
             break;
         case 2:
-            // read the keyz42
-            printf("Enter the key: ");
+            // read the key
+            printf("Enter the id: ");
             scanf("%d", &key);
             // search for the item in the hash table
             it = searchHashTable(&ht, key);
             // check if the item is found
-            if (it.id != -1)
+            if (it.id[0] != '\0')
             {
                 // display the item details
                 printf("%d:%s %s %d:%d\n", it.id, it.name, it.phone, it.t.hh, it.t.mm);
@@ -83,7 +89,7 @@ int main()
             // search for the item in the hash table
             it = searchHashTable(&ht, key);
             // check if the item is found
-            if (it.id != -1)
+            if (it.id[0] != '\0')
             {
                 // read the item details
                 printf("Enter the item details\n");
@@ -109,7 +115,7 @@ int main()
                 // update the item in the hash table
                 updateHashTable(&ht, key, it);
                 // update the item in the priority queue
-                updatePriorityQueue(&pq, key, it);
+                //updatePriorityQueue(&pq, key, it);
             }
             else
             {
@@ -123,14 +129,14 @@ int main()
             // delete the item from the hash table
             deleteHashTable(&ht, key);
             // delete the item from the priority queue
-            deletePriorityQueue(&pq, key);
+            //deletePriorityQueue(&pq, key);
             break;
         case 5:
             // display the hash table
             printf("Hash Table\n");
             displayHashTable(&ht);
             // display the priority queue
-            displayPriorityQueue(&pq);
+            //displayPriorityQueue(&pq);
             break;
         case 6:
             // exit the program
