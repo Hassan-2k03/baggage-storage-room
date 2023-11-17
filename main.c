@@ -2,15 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include "baggage.h"
+#include<time.h>
 
 int main()
 {
     // declare a hash table and a priority queue
     HASH_TABLE ht;
     PRIORITY_QUEUE pq;
-    // declare an item and a time variable
+    // declare an item variable
     ITEM it;
-    struct check_in t;
     // declare a key variable
     int key;
     // declare a choice variable
@@ -35,19 +35,19 @@ int main()
         case 1:
             // read the item details
             printf("Enter the item details\n");
-            printf("Name: ");
-            scanf(" %[^\n]s", it.name);
-            if (validName(it.name) == 0)
-            {
-                printf("Error: Invalid Name\n");
-                break;
-            }
             printf("ID: "); // if letters entered it should be rejected and message to be displayed
             scanf("%s", &it.id);
             getchar();
             if (validId(it.id) == 0)
             {
                 printf("Error: Invalid ID\n");
+                break;
+            }
+            printf("Name: ");
+            scanf(" %[^\n]s", it.name);
+            if (validName(it.name) == 0)
+            {
+                printf("Error: Invalid Name\n");
                 break;
             }
             printf("Phone: ");
@@ -57,9 +57,6 @@ int main()
                 printf("Error: Invalid Phone Number\n");
                 break;
             }
-            printf("Check-in time (hh:mm): ");
-            scanf("%d:%d", &t.hh, &t.mm);
-            it.t = t;
             // insert the item into the hash table
             insertHashTable(&ht, it);
             // insert the item into the priority queue
@@ -75,7 +72,7 @@ int main()
             if (it.id[0] != '\0')
             {
                 // display the item details
-                printf("%d:%s %s %d:%d\n", it.id, it.name, it.phone, it.t.hh, it.t.mm);
+                printf("%d:%s %s \n", it.id, it.name, it.phone);
             }
             else
             {
@@ -109,9 +106,6 @@ int main()
                     printf("Error: Invalid Phone Number\n");
                     break;
                 }
-                printf("Check-in time (hh:mm): ");
-                scanf("%d:%d", &t.hh, &t.mm);
-                it.t = t;
                 // update the item in the hash table
                 updateHashTable(&ht, key, it);
                 // update the item in the priority queue

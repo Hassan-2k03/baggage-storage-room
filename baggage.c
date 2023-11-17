@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "baggage.h"
+#include<time.h>
 
 // Checks if Name is valid or not
 int validName(char *name)
@@ -60,9 +61,7 @@ void insertHashTable(HASH_TABLE *ht, ITEM it) // insert an item into the hash ta
 {
     // declare an index variable
     NODE *q; // declare a pointer to a node
-    printf("it.id before conversion: %s\n", it.id);
-    int id = atoi(it.id);
-    printf("id after conversion: %d\n", id);
+    int id = atoi(it.id);                  // convert the key to an integer
     int index = hashFunction(id);         // compute the hash value of the key and stores in index
     printf("index: %d\n", index);          // display the index value
     printf("id: %d\n", id);                // display the key value
@@ -168,11 +167,20 @@ void displayHashTable(HASH_TABLE *ht) // display all the items in the hash table
         p = ht->table[i];
         while (p != NULL)
         {
-            printf("%d:%s %d:%d %s", atoi(p->data.id), p->data.name, p->data.t.hh, p->data.t.mm, p->data.phone);
+            printf("%d:%s %s\n", atoi(p->data.id), p->data.name, p->data.phone);
             p = p->next;
         }
         printf("\n");
     }
+}
+
+void getCurrentTime(struct check_in *current_time) {
+    time_t currentTime = time(NULL);
+    struct tm *localTime = localtime(&currentTime);
+
+    current_time->hh = localTime->tm_hour;
+    current_time->mm = localTime->tm_min;
+    current_time->ss = localTime->tm_sec;
 }
 
 // priority queue functions

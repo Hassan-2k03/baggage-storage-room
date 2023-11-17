@@ -4,22 +4,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-
 #define SIZE 10 // size of the hash table
 
-struct check_in
-{
-    int hh, mm;
+// structure to store the check in time
+struct check_in {
+    int hh;
+    int mm;
+    int ss;
 };
 
 // structure to store the item information
 typedef struct item
 {
-    char id[5];    // item key
+    char id[6];    // item key
     char name[50]; // item owner name
     char phone[10]; // item owner phone number
-    struct check_in t;
-    // item check-in time
 } ITEM;
 
 // structure to store the node of the linked list
@@ -27,6 +26,7 @@ typedef struct node
 {
     struct item data;  // item data
     struct node *next; // pointer to the next node
+    struct check_in current_time;  // Add current_time field to the node
 } NODE;
 
 // structure to store the hash table
@@ -68,9 +68,10 @@ ITEM popPriorityQueue(PRIORITY_QUEUE *pq);                      // pop the item 
 void updatePriorityQueue(PRIORITY_QUEUE *pq, int key, ITEM it); // update the priority value of an item in the priority queue by key
 void deletePriorityQueue(PRIORITY_QUEUE *pq, int key);          // delete an item from the priority queue by key
 void displayPriorityQueue(PRIORITY_QUEUE *pq);                  // display all the items in the priority queue
-
+void getCurrentTime(struct check_in *current_time);            // get the current time
 // validation of items
 int validName(char *name);   // validate the name of an item
 int validPhone(char *phone); // validate the phone number of an item
 int validId(char *id);        // validate if id has only numbers
+
 #endif
