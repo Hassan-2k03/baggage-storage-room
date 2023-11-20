@@ -1,4 +1,3 @@
-#ifndef BAGGAGE_H // include guard
 #define BAGGAGE_H
 
 #include <stdio.h>
@@ -61,17 +60,11 @@ void updateHashTable(HASH_TABLE *ht, int key, ITEM it); // update an item in the
 void deleteHashTable(HASH_TABLE *ht, int key);          // delete an item from the hash table by key
 void displayHashTable(HASH_TABLE *ht);                  // display all the items in the hash table
 
-// priority queue functions
-void initPriorityQueue(PRIORITY_QUEUE *pq);                     // initialize the priority queue
-void insertPriorityQueue(PRIORITY_QUEUE *pq, ITEM it);          // insert an item into the priority queue with a priority value
-ITEM popPriorityQueue(PRIORITY_QUEUE *pq);                      // pop the item with the highest priority from the priority queue
-void updatePriorityQueue(PRIORITY_QUEUE *pq, int key, ITEM it); // update the priority value of an item in the priority queue by key
-void deletePriorityQueue(PRIORITY_QUEUE *pq, int key);          // delete an item from the priority queue by key
-void displayPriorityQueue(PRIORITY_QUEUE *pq);                  // display all the items in the priority queue
-void getCurrentTime(struct check_in *current_time);            // get the current time
+// get the current time
+
+void getCurrentTime(struct check_in *current_time);            
+
 // validation of items
 int validName(char *name);   // validate the name of an item
 int validPhone(char *phone); // validate the phone number of an item
 int validId(char *id);        // validate if id has only numbers
-
-#endif
