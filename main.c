@@ -40,6 +40,13 @@ int main()
                 printf("Error: Invalid ID\n");
                 break;
             }
+            // check if the id already exists
+            ITEM existingItem = searchHashTable(&ht, atoi(it.id));
+            if (existingItem.id[0] != '\0')
+            {
+                printf("Error: ID already exists\n");
+                break;
+            }
             printf("Name: ");
             scanf(" %[^\n]s", it.name);
             if (validName(it.name) == 0)
