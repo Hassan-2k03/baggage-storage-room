@@ -7,32 +7,30 @@ gcc a.exe_
 
 # Baggage Management System
 
-This project is a Baggage Management System implemented in C, consisting of a hash table and a priority queue to manage baggage check-ins at an airport.
+This project is a Baggage Management System implemented in C, consisting of a hash table to manage baggage check-ins at an airport.
 
 ## Overview
 
 The project contains three main files:
-- `baggage.c`: Contains functions for manipulating the hash table and priority queue.
+- `baggage.c`: Contains functions for manipulating the hash table.
 - `baggage.h`: Header file defining structures, function prototypes, and constants used across the project.
-- `main.c`: Implements a menu-driven program to test the functionality of the hash table and priority queue for baggage management.
+- `main.c`: Implements a menu-driven program to test the functionality of the hash table for baggage management.
 
 ## Files Description
 
 ### `baggage.c`
-This file contains functions for manipulating the hash table and priority queue:
+This file contains functions for manipulating the hash table :
 - **Hash Table Functions**:
   - Initialization, insertion, search, update, deletion, and display of items in the hash table.
-- **Priority Queue Functions**:
-  - Initialization, insertion, popping the item with the highest priority, update, deletion, and display of items in the priority queue.
 
 ### `baggage.h`
 Defines structures and function prototypes used in the project:
-- Structures for items, nodes of linked lists and priority queues, along with the hash table and priority queue.
-- Function prototypes for hash table and priority queue manipulation.
+- Structures for items, nodes of linked lists, along with the hash table.
+- Function prototypes for hash table manipulation.
 
 ### `main.c`
-Implements a menu-driven program to interact with the hash table and priority queue:
-- Offers options for inserting, searching, updating, deleting, and displaying items in the hash table and priority queue.
+Implements a menu-driven program to interact with the hash table:
+- Offers options for inserting, searching, deleting, and displaying items in the hash table.
 - Uses functions from `baggage.c` to perform these operations.
 
 ## How to Run
@@ -73,7 +71,7 @@ Implements a menu-driven program to interact with the hash table and priority qu
         - Search for items by ID.
         - Update item details.
         - Delete items.
-        - Display the current contents of the hash table and priority queue.
+        - Display the current contents of the hash table.
 
 5. **Exit the Program**
     - Select the exit option from the menu when done.
