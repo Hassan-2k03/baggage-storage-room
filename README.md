@@ -1,98 +1,48 @@
-# baggage-storage-room
-**Mini project Dsa 3rd semester**
+Certainly! Here's a `README.md` file to explain the purpose and usage of the provided code files:
 
-**instructions for execution:**
-_gcc baggage.c main.c
-gcc a.exe_
+---
 
 # Baggage Management System
 
-This project is a Baggage Management System implemented in C, consisting of a hash table and a priority queue to manage baggage check-ins at an airport.
+This repository contains a C implementation of a Baggage Management System using hash tables and priority queues. The system allows users to manage baggage items, their owners, and check-in times through a command-line interface.
 
-## Overview
-
-The project contains three main files:
-- `baggage.c`: Contains functions for manipulating the hash table and priority queue.
-- `baggage.h`: Header file defining structures, function prototypes, and constants used across the project.
-- `main.c`: Implements a menu-driven program to test the functionality of the hash table and priority queue for baggage management.
-
-## Files Description
-
-### `baggage.c`
-This file contains functions for manipulating the hash table and priority queue:
-- **Hash Table Functions**:
-  - Initialization, insertion, search, update, deletion, and display of items in the hash table.
-- **Priority Queue Functions**:
-  - Initialization, insertion, popping the item with the highest priority, update, deletion, and display of items in the priority queue.
-
-### `baggage.h`
-Defines structures and function prototypes used in the project:
-- Structures for items, nodes of linked lists and priority queues, along with the hash table and priority queue.
-- Function prototypes for hash table and priority queue manipulation.
+## Files
 
 ### `main.c`
-Implements a menu-driven program to interact with the hash table and priority queue:
-- Offers options for inserting, searching, updating, deleting, and displaying items in the hash table and priority queue.
-- Uses functions from `baggage.c` to perform these operations.
 
-## How to Run
+This file contains the main program that utilizes functions defined in `baggage.h` and `baggage.c` to interact with the baggage management system. It presents a menu-driven interface allowing users to insert, search, delete, and display baggage items.
 
-### Prerequisites
-- Ensure you have a C compiler installed (e.g., GCC for Unix/Linux or MinGW for Windows).
+### `baggage.c`
 
-### Steps
-1. **Clone the Repository**
-    ```bash
-    git clone https://github.com/your-username/baggage-management.git
-    cd baggage-management/
-    ```
+This file includes implementations of functions that perform various operations on the baggage management system. It defines functions for initializing hash tables, inserting, searching, updating, and deleting items, along with functions for validating item details and handling time-related operations.
 
-2. **Compile the Code**
-    - For Unix/Linux:
-        ```bash
-        gcc baggage.c main.c -o baggage_manager
-        ```
-    - For Windows (using MinGW):
-        ```bash
-        gcc baggage.c main.c -o baggage_manager.exe
-        ```
+### `baggage.h`
 
-3. **Run the Executable**
-    - For Unix/Linux:
-        ```bash
-        ./baggage_manager
-        ```
-    - For Windows:
-        ```bash
-        baggage_manager.exe
-        ```
+This header file defines structures, function prototypes, and constants used across the baggage management system. It declares structures for items, nodes in the hash table, check-in times, and priority queues. Additionally, it declares function prototypes for hash table operations, item validations, and time-related functions.
 
-4. **Interact with the Program**
-    - Follow the menu-driven options to perform various operations on baggage items:
-        - Insert new items.
-        - Search for items by ID.
-        - Update item details.
-        - Delete items.
-        - Display the current contents of the hash table and priority queue.
+## How to Use
 
-5. **Exit the Program**
-    - Select the exit option from the menu when done.
+To use this baggage management system:
 
-### Example Commands
-- **Compile:**
-    ```bash
-    gcc baggage.c main.c -o baggage_manager
-    ```
-- **Run (Unix/Linux):**
-    ```bash
-    ./baggage_manager
-    ```
-- **Run (Windows):**
-    ```bash
-    baggage_manager.exe
-    ```
+1. **Compile**: Compile the provided source files using a C compiler. For example:
+   ```
+   gcc main.c baggage.c -o baggage_system
+   ```
 
-### Note
-- Ensure all files (`baggage.c`, `baggage.h`, `main.c`) are in the same directory when compiling.
-- Modify the compilation commands according to the specific C compiler and platform used.
+2. **Run**: Execute the compiled program:
+   ```
+   ./baggage_system
+   ```
 
+3. **Menu Options**: Use the displayed menu options to interact with the system. You can perform actions such as inserting new baggage items, searching for items, deleting items, and displaying the contents of the baggage storage.
+
+4. **Input Validation**: The system validates entered data such as ID, name, and phone number. Ensure that inputs adhere to the specified formats to avoid errors.
+
+## Important Notes
+
+- **Input Validation**: Ensure to input valid details (ID, name, phone number) following the specified formats to prevent errors during item insertion.
+- **Command-Line Interface**: The system operates through a command-line interface and follows a menu-driven approach for user interaction.
+
+Feel free to explore and modify the code to suit your requirements!
+
+---
