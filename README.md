@@ -1,6 +1,6 @@
 # Baggage Management System
 
-This repository contains a C implementation of a Baggage Management System using hash tables and priority queues. The system allows users to manage baggage items, their owners, and check-in times through a command-line interface.
+This repository contains a C implementation of a Baggage Management System using hash table. The system allows users to manage baggage items, their owners, and check-in times through a command-line interface.
 
 ## Files
 
