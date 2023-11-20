@@ -1,5 +1,3 @@
-#define BAGGAGE_H
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -34,22 +32,6 @@ typedef struct hash_table
     struct node *table[SIZE]; // array of pointers to linked list nodes
     int count;                // number of items in the hash table
 } HASH_TABLE;
-
-// structure to store the node of the priority queue
-typedef struct pq_node
-{
-    struct item data;      // item data
-    int priority;          // item priority value
-    struct pq_node *left;  // pointer to the left child
-    struct pq_node *right; // pointer to the right child
-} PQ_NODE;
-
-// structure to store the priority queue
-typedef struct priority_queue
-{
-    struct pq_node *root; // pointer to the root node
-    int count;            // number of items in the priority queue
-} PRIORITY_QUEUE;
 
 // hash table functions
 void initHashTable(HASH_TABLE *ht);                     // initialize the hash table
